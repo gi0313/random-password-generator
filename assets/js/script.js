@@ -20,8 +20,8 @@ function writePassword() {
   var special="!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
   var finalString="";
   var passwordLength = window.prompt("How many characters would you like your password to contain?");
-  //if invalid input is entered
   
+  //if invalid input is entered
   if (passwordLength === "" || passwordLength===null){
     window.alert("You must provide a value.");
     return writePassword();
