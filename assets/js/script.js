@@ -21,11 +21,11 @@ function writePassword() {
   var finalString="";
   var passwordLength = window.prompt("How many characters would you like your password to contain?");
   //if invalid input is entered
-  if (passwordLength <8 || passwordLength>128){
-    window.alert("Password must be between 8 and 128 characters long");
+  if (passwordLength === "" || passwordLength===null){
+    window.alert("You must provide a value.");
     return writePassword();
-  } else if (passwordLength === "" || passwordLength === null) {
-    window.alert("You must input a value!");
+  } else if (passwordLength < 8 || passwordLength > 128) {
+    window.alert("Password must be between 8 and 128 characters long.");
     return writePassword();
   } else if(isNaN(passwordLength)) {
     window.alert("Must be a number!");
@@ -36,7 +36,14 @@ function writePassword() {
   var numericChars = window.confirm("Click OK to confirm if you want numeric characters");
   var lowercaseChars = window.confirm("Click OK to confirm if you want lowercase characters");
   var uppercaseChars = window.confirm("Click OK to confirm if you want uppercase characters");
-    //adds the ones that are true to the final string
+  
+  //if none are selected
+  if (!specialChars && !numericChars && !lowercaseChars && !uppercaseChars) {
+    finalString = window.alert("You must choose at least one option.");
+    return writePassword();
+  }
+  
+  //adds the ones that are true to the final string
   if(specialChars) {
     finalString+=special
   }
