@@ -3,11 +3,11 @@
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-//password is generated with all the true variablesS
+//password is generated with all the true variables
 function generatePassword(finalString,passwordLength){
   var password="";
   for(let i=0; i<passwordLength; i++){
-    password+=finalString.charAt(Math.floor(Math.random() * finalString.length));
+    password+=finalString.charAt(Math.floor(Math.random()*finalString.length));
   }
 return password;
 }
@@ -21,6 +21,7 @@ function writePassword() {
   var finalString="";
   var passwordLength = window.prompt("How many characters would you like your password to contain?");
   //if invalid input is entered
+  
   if (passwordLength === "" || passwordLength===null){
     window.alert("You must provide a value.");
     return writePassword();
